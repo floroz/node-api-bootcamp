@@ -1,16 +1,13 @@
-import dotenv from "dotenv";
-import express from "express";
-
+const dotenv = require("dotenv");
+const express = require("express");
+const bootcampRouter = require("./routes/bootcamp");
 dotenv.config({ path: "./config/config.env" });
 
 const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-app.get("/", (req, res) => {
-  console.log("test");
-  res.json({ msg: "Cool" });
-});
+app.use("api/v1/bootcamp/", bootcampRouter);
 
 app.listen(
   PORT,
