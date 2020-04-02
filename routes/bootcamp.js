@@ -1,11 +1,12 @@
 const express = require("express");
+const bootcampController = require("../controllers/bootcamp");
 
 const router = express.Router();
 
-router.get("/", (req, res, next) => {});
-router.get("/:id", (req, res, next) => {});
-router.post("/", (req, res, next) => {});
-router.put("/:id", (req, res, next) => {});
-router.delete("/:id", (req, res, next) => {});
+router.get("/", bootcampController.getAllBootcamps);
+router.get("/:id", bootcampController.getBootcampById);
+router.post("/", bootcampController.createBootcamp);
+router.put("/:id", bootcampController.updateBootcamp);
+router.delete("/:id", bootcampController.deleteBootcamp);
 
 module.exports = router;
